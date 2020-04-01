@@ -34,6 +34,13 @@ class Stack(object):
 
     def __eq__(self, other):
         print("I'm in the overloaded '==' function.")
+        itl = self.createIterator()
+        itr = self.createIterator()
+
+        if itl.currentItem().__sizeof__() == itr.currentItem().__sizeof__():
+            return True
+        else:
+            return False
 
 
 class StackIterator(object):
@@ -47,6 +54,9 @@ class StackIterator(object):
         self.n += 1
         if self.n > self.container.maximum:
             raise StopIteration
+        return self.n
+
+    def currentItem(self):
         return self.n
 
     def __iter__(self):
@@ -101,5 +111,6 @@ if __name__ == '__main__':
 
     """Compare stacks"""
     print("1 == 2", (s1 == s2))
-
-
+    print("1 == 3", (s1 == s3))
+    print("1 == 4", (s1 == s4))
+    print("1 == 5", (s1 == s5))
