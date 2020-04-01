@@ -6,6 +6,12 @@ import itertools
 class Stack(object):
     "An iterable object."
 
+    """I used the stack implementation from the PYTHONDS library"""
+    """https://runestone.academy/runestone/books/published/pythonds/BasicDS/ImplementingaStackinPython.html"""
+    """The module can be downloaded from GitHub. or installed from """
+    """the command line using pip install pythonds."""
+    """Scott Bing  04/01/2020"""
+
     items = []
 
     def __init__(self, maximum):
