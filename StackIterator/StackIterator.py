@@ -9,7 +9,8 @@ class Stack(object):
 
     def __init__(self, maximum):
         self.maximum = maximum
-        self.items = [0] * 10
+        self.items = []
+        # self.items = [0] * 10
 
     def isEmpty(self):
         return self.items == []
@@ -33,11 +34,17 @@ class Stack(object):
         return StackIterator(self)
 
     def __eq__(self, other):
-        print("I'm in the overloaded '==' function.")
+        # print("I'm in the overloaded '==' function.")
         itl = self.createIterator()
-        itr = self.createIterator()
+        itr = other.createIterator()
 
-        if itl.currentItem().__sizeof__() == itr.currentItem().__sizeof__():
+        # Debugging only
+        # for n in self.items:
+        #     if n != 0:
+        #         print(str(n) + " in == ", end='')
+        # print()
+
+        if self.size() == other.size():
             return True
         else:
             return False
@@ -70,10 +77,11 @@ if __name__ == '__main__':
     for i in range(1, 5):
         s1.push(i)
 
-    for n in s1.items:
-        if n != 0:
-            print(str(n) + " ", end='')
-    print()
+    # Debugging only
+    # for n in s1.items:
+    #     if n != 0:
+    #         print(str(n) + " ", end='')
+    # print()
 
     """Duplicate the stacks inot different objects"""
     s2 = copy.deepcopy(s1)
@@ -81,33 +89,37 @@ if __name__ == '__main__':
     s4 = copy.deepcopy(s1)
     s5 = copy.deepcopy(s1)
 
-    for n in s2.items:
-        if n != 0:
-            print(str(n) + " ", end='')
-    print()
+    # Debugging only
+    # for n in s2.items:
+    #     if n != 0:
+    #         print(str(n) + " ", end='')
+    # print()
 
     s3.pop()
 
-    for n in s3.items:
-        if n != 0:
-            print(str(n) + " ", end='')
-    print()
+    # Debugging only
+    # for n in s3.items:
+    #     if n != 0:
+    #         print(str(n) + " ", end='')
+    # print()
 
     s4.push(9)
 
-    for n in s4.items:
-        if n != 0:
-            print(str(n) + " ", end='')
-    print()
+    # Debugging only
+    # for n in s4.items:
+    #     if n != 0:
+    #         print(str(n) + " ", end='')
+    # print()
 
     s5.pop()
     s5.pop()
     s5.push(6)
 
-    for n in s5.items:
-        if n != 0:
-            print(str(n) + " ", end='')
-    print()
+    # Debugging only
+    # for n in s5.items:
+    #     if n != 0:
+    #         print(str(n) + " ", end='')
+    # print()
 
     """Compare stacks"""
     print("1 == 2", (s1 == s2))
