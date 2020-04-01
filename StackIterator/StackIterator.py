@@ -1,5 +1,6 @@
 # importing copy module
 import copy
+import itertools
 
 
 class Stack(object):
@@ -44,7 +45,15 @@ class Stack(object):
         #         print(str(n) + " in == ", end='')
         # print()
 
+        # Debugging only
+        # for s, o in itertools.zip_longest(self.items, other.items):
+        #     print(s, o)
+
+        """use the iterator to comapre the stacks"""
         if self.size() == other.size():
+            for s, o in itertools.zip_longest(self.items, other.items):
+                if s != o:
+                    return False
             return True
         else:
             return False
@@ -77,31 +86,13 @@ if __name__ == '__main__':
     for i in range(1, 5):
         s1.push(i)
 
-    # Debugging only
-    # for n in s1.items:
-    #     if n != 0:
-    #         print(str(n) + " ", end='')
-    # print()
-
     """Duplicate the stacks inot different objects"""
     s2 = copy.deepcopy(s1)
     s3 = copy.deepcopy(s1)
     s4 = copy.deepcopy(s1)
     s5 = copy.deepcopy(s1)
 
-    # Debugging only
-    # for n in s2.items:
-    #     if n != 0:
-    #         print(str(n) + " ", end='')
-    # print()
-
     s3.pop()
-
-    # Debugging only
-    # for n in s3.items:
-    #     if n != 0:
-    #         print(str(n) + " ", end='')
-    # print()
 
     s4.push(9)
 
