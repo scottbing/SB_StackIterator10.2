@@ -39,16 +39,6 @@ class Stack(object):
         itl = self.createIterator()
         itr = other.createIterator()
 
-        # Debugging only
-        # for n in self.items:
-        #     if n != 0:
-        #         print(str(n) + " in == ", end='')
-        # print()
-
-        # Debugging only
-        # for s, o in itertools.zip_longest(self.items, other.items):
-        #     print(s, o)
-
         """use the iterator to comapre the stacks"""
         if self.size() == other.size():
             for s, o in itertools.zip_longest(self.items, other.items):
@@ -81,38 +71,26 @@ class StackIterator(object):
 
 if __name__ == '__main__':
 
+    """Establish an initial stack"""
     s1 = Stack(7)
 
     for i in range(1, 5):
         s1.push(i)
 
-    """Duplicate the stacks inot different objects"""
+    """Duplicate the stacks into different objects"""
     s2 = copy.deepcopy(s1)
     s3 = copy.deepcopy(s1)
     s4 = copy.deepcopy(s1)
     s5 = copy.deepcopy(s1)
 
+    """Perform some stack operations to alter the original stack"""
     s3.pop()
-
     s4.push(9)
-
-    # Debugging only
-    # for n in s4.items:
-    #     if n != 0:
-    #         print(str(n) + " ", end='')
-    # print()
-
     s5.pop()
     s5.pop()
     s5.push(6)
 
-    # Debugging only
-    # for n in s5.items:
-    #     if n != 0:
-    #         print(str(n) + " ", end='')
-    # print()
-
-    """Compare stacks"""
+    """Compare stacks and print the results"""
     print("1 == 2", (s1 == s2))
     print("1 == 3", (s1 == s3))
     print("1 == 4", (s1 == s4))
